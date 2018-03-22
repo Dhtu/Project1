@@ -28,6 +28,7 @@ void Creat_laby(size_t size)
 	laby[7][7] = laby[1][8] = Blocked;
 
 }
+
 #else
 
 
@@ -39,7 +40,7 @@ static int count;				/*用于控制循环结束*/
 
 void create(int n, int m)		/*用于生成迷宫的函数*/
 {
-	int x, y, dir;
+	int32_t x, y, dir;
 
 	x = n - 1;					/*每个点到（1，1）点，横坐标距离n-1，纵坐标距离m-1*/
 	y = m - 1;
@@ -74,8 +75,8 @@ void create(int n, int m)		/*用于生成迷宫的函数*/
 }
 
 void Creat_laby() {
-	int i, j;
-	int p, q;
+	int32_t i, j;
+	int32_t p, q;
 	srand((unsigned int)time(NULL));
 	for (i = 0; i < size; i++)  /*开始全是墙*/
 		for (j = 0; j < size; j++) {
@@ -102,5 +103,4 @@ void Creat_laby() {
 
 	return ;
 }
-
 #endif

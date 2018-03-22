@@ -13,6 +13,8 @@
 #define Start 1						//起始点
 #define End size-2					//终点
 
+typedef signed int  int32_t;
+
 extern size_t size;					//迷宫的大小
 extern struct coordinate path[100];	//路径数组
 extern int laby[MaxLength][MaxLength];//迷宫数组

@@ -1,8 +1,9 @@
 #pragma once
 #include "stdafx.h"
-#include "labyrinth.h"
 
-size_t index;			//path数组的下标
+
+static size_t index = 0;	//path数组的下标
+
 int Find_path(size_t x, size_t y)
 {
 	size_t sign;
@@ -12,7 +13,7 @@ int Find_path(size_t x, size_t y)
 	index++;
 	sign = index;			//储存index，方便回退
 
-	
+
 	if (x == End && y == End)//判断是否到达终点
 	{
 		path[index].x = '#';//终止符号
