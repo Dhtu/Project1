@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "labyrinth.h"
 
-
+size_t index;			//path数组的下标
 int Find_path(size_t x, size_t y)
 {
 	size_t sign;

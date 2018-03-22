@@ -1,5 +1,7 @@
-/*#pragma once
+#pragma once
 #include "stdafx.h"
+#define DEBUG 0
+#if DEBUG
 #include "labyrinth.h"
 
 
@@ -26,9 +28,9 @@ void Creat_laby(size_t size)
 	laby[7][7] = laby[1][8] = Blocked;
 
 }
-*/
-#include"stdafx.h"
-#include"labyrinth.h"
+#else
+
+
 #include<stdlib.h>
 #include<time.h>
 #define Left 0
@@ -100,3 +102,5 @@ void Creat_laby() {
 
 	return ;
 }
+
+#endif

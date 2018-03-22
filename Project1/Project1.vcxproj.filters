@@ -22,7 +22,10 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="labyrinth.h">
-      <Filter>源文件</Filter>
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\新建文件夹\Project1.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

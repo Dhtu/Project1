@@ -15,7 +15,6 @@
 
 extern size_t size;
 extern struct coordinate path[64];
-extern size_t index;
 extern int laby[MaxLength][MaxLength];
 
 
