@@ -1,6 +1,5 @@
 #pragma once
 #include "stdafx.h"
-#include"labyrinth.h"
 
 
 void Print_laby()
