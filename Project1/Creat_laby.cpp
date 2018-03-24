@@ -35,7 +35,7 @@ void Creat_laby(size_t g_ulSize)						//单元测试代码
 #define CL_UP 1
 static size_t sg_ulCount;					            /*用于控制循环结束*/
 
-void create(int32_t Dest_X, int32_t Dest_Y)	            /*用于生成迷宫的函数*/
+void CL_Create(int32_t Dest_X, int32_t Dest_Y)	            /*用于生成迷宫的函数*/
 {
 	int32_t lCurrent_X, lCurrent_Y, lDirector;
 	lCurrent_X = Dest_X - 1;							/*每个点到（1，1）点，横坐标距离Dest_X-1，纵坐标距离Dest_Y-1*/
@@ -48,22 +48,22 @@ void create(int32_t Dest_X, int32_t Dest_Y)	            /*用于生成迷宫的函数*/
 
 		if (lCurrent_Y == 0) {						    /*向左，一个方向的距离为零时走另一个方向*/
 			g_aLaby[Dest_X - 1][Dest_Y] = AVAILABLE;
-			create(Dest_X - 1, Dest_Y);
+			CL_Create(Dest_X - 1, Dest_Y);
 		}
 
 		else if (lCurrent_X == 0) {
 			g_aLaby[Dest_X][Dest_Y - 1] = AVAILABLE;
-			create(Dest_X, Dest_Y - 1);
+			CL_Create(Dest_X, Dest_Y - 1);
 		}
 
 		else if (lDirector == CL_LEFT && lCurrent_X > 0) {
 			g_aLaby[Dest_X - 1][Dest_Y] = AVAILABLE;
-			create(Dest_X - 1, Dest_Y);
+			CL_Create(Dest_X - 1, Dest_Y);
 		}
 
 		else if (lDirector == CL_UP && lCurrent_Y > 0) {
 			g_aLaby[Dest_X][Dest_Y - 1] = AVAILABLE;
-			create(Dest_X, Dest_Y - 1);
+			CL_Create(Dest_X, Dest_Y - 1);
 		}
 
 		else;
@@ -93,7 +93,7 @@ void Creat_laby() {
 
 
 	sg_ulCount = 0;					                    /*打一条从（Start，Start）到（End，End）的路*/
-	create(END, END);
+	CL_Create(END, END);
 
 
 	for (i = 0; i <= Random_Point_Count; i++) {         /*设置随机点到（1，1）的路线*/
@@ -110,7 +110,7 @@ void Creat_laby() {
 				 g_aLaby[ulRandom_X - 1][ulRandom_Y] == AVAILABLE ||
 				 g_aLaby[ulRandom_X][ulRandom_Y - 1] == AVAILABLE);
 
-				 create(ulRandom_X, ulRandom_Y);
+				 CL_Create(ulRandom_X, ulRandom_Y);
 
 	}
 
