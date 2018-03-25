@@ -31,9 +31,15 @@ void Creat_laby(size_t g_ulSize)						//单元测试代码
 
 #include<stdlib.h>
 #include<time.h>
+
+
 #define CL_LEFT 0
 #define CL_UP 1
+
+
 static size_t sg_ulCount;					            /*用于控制循环结束*/
+static int32_t **sg_pLaby;
+static size_t sg_ulSize;
 
 void CL_Create(int32_t Dest_X, int32_t Dest_Y)	            /*用于生成迷宫的函数*/
 {
@@ -47,22 +53,22 @@ void CL_Create(int32_t Dest_X, int32_t Dest_Y)	            /*用于生成迷宫的函数*
 
 
 		if (lCurrent_Y == 0) {						    /*向左，一个方向的距离为零时走另一个方向*/
-			g_aLaby[Dest_X - 1][Dest_Y] = AVAILABLE;
+			sg_pLaby[Dest_X - 1][Dest_Y] = AVAILABLE;
 			CL_Create(Dest_X - 1, Dest_Y);
 		}
 
 		else if (lCurrent_X == 0) {
-			g_aLaby[Dest_X][Dest_Y - 1] = AVAILABLE;
+			sg_pLaby[Dest_X][Dest_Y - 1] = AVAILABLE;
 			CL_Create(Dest_X, Dest_Y - 1);
 		}
 
 		else if (lDirector == CL_LEFT && lCurrent_X > 0) {
-			g_aLaby[Dest_X - 1][Dest_Y] = AVAILABLE;
+			sg_pLaby[Dest_X - 1][Dest_Y] = AVAILABLE;
 			CL_Create(Dest_X - 1, Dest_Y);
 		}
 
 		else if (lDirector == CL_UP && lCurrent_Y > 0) {
-			g_aLaby[Dest_X][Dest_Y - 1] = AVAILABLE;
+			sg_pLaby[Dest_X][Dest_Y - 1] = AVAILABLE;
 			CL_Create(Dest_X, Dest_Y - 1);
 		}
 
@@ -79,18 +85,26 @@ void CL_Create(int32_t Dest_X, int32_t Dest_Y)	            /*用于生成迷宫的函数*
 	return;
 }
 
-void Creat_laby() {
+void Creat_laby(int32_t **pLaby,size_t ulSize) {
 	int32_t i, j;					                    //循环变量
 	int32_t ulRandom_X, ulRandom_Y;	                    //随机坐标
+	sg_ulSize = ulSize;
+	size_t ulSafety = 0;
+
+
 	srand((unsigned int)time(NULL));
+	
+
+	for (i = 0; i<ulSize; i++)
+		pLaby[i] = (int *)malloc(sizeof(int32_t) * ulSize);
+	sg_pLaby = pLaby;
 
 
-	for (i = 0; i < g_ulSize; i++)                      /*开始全是墙*/
-		for (j = 0; j < g_ulSize; j++) {
-			g_aLaby[i][j] = BLOCKED;
+	for (i = 0; i < ulSize; i++)                      /*开始全是墙*/
+		for (j = 0; j < ulSize; j++) {
+			sg_pLaby[i][j] = BLOCKED;
 		}
-	g_aLaby[END][END] = AVAILABLE;	                    /*设置终点*/
-
+	sg_pLaby[END][END] = AVAILABLE;	                    /*设置终点*/
 
 	sg_ulCount = 0;					                    /*打一条从（Start，Start）到（End，End）的路*/
 	CL_Create(END, END);
@@ -100,15 +114,21 @@ void Creat_laby() {
 		sg_ulCount = 0;
 
 		do {
-			ulRandom_X = rand() % (g_ulSize - 1);
-			ulRandom_Y = rand() % (g_ulSize - 1);
+			ulRandom_X = rand() % (ulSize - 2)+1;
+			ulRandom_Y = rand() % (ulSize - 2)+1;
+
+			ulSafety++;
+			if (200<ulSafety)//保护装置
+			{
+				break;
+			}
 		} while (ulRandom_X == AVAILABLE ||             //随机点不在边缘且周围是墙
 				 ulRandom_Y == AVAILABLE ||
-			  	 g_aLaby[ulRandom_X][ulRandom_Y] == AVAILABLE ||
-				 g_aLaby[ulRandom_X + 1][ulRandom_Y] == AVAILABLE ||
-				 g_aLaby[ulRandom_X][ulRandom_Y + 1] == AVAILABLE ||
-				 g_aLaby[ulRandom_X - 1][ulRandom_Y] == AVAILABLE ||
-				 g_aLaby[ulRandom_X][ulRandom_Y - 1] == AVAILABLE);
+			  	 sg_pLaby[ulRandom_X][ulRandom_Y] == AVAILABLE ||
+				 sg_pLaby[ulRandom_X + 1][ulRandom_Y] == AVAILABLE ||
+				 sg_pLaby[ulRandom_X][ulRandom_Y + 1] == AVAILABLE ||
+				 sg_pLaby[ulRandom_X - 1][ulRandom_Y] == AVAILABLE ||
+				 sg_pLaby[ulRandom_X][ulRandom_Y - 1] == AVAILABLE);
 
 				 CL_Create(ulRandom_X, ulRandom_Y);
 

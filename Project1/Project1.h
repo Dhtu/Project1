@@ -1,8 +1,6 @@
 #pragma once
 
 
-
-typedef signed int  int32_t;
 /*==============================迷宫创建函数=================================*/
 /**
 *  \brief 将迷宫数组初始化为迷宫
@@ -10,7 +8,7 @@ typedef signed int  int32_t;
 *  
 *  
 */
-void Creat_laby();
+void Creat_laby(int32_t **pLaby, size_t ulSize);
 
 /*==============================迷宫打印函数=================================*/
 /**
@@ -19,7 +17,7 @@ void Creat_laby();
 *  
 *  
 */
-void Print_laby();
+void Print_laby(int32_t **pLaby, size_t ulSize);
 
 /*==============================迷宫寻址函数=================================*/
 /**
@@ -28,8 +26,7 @@ void Print_laby();
 *  \param[in][out]  初始左边  通路情况
 *  \retval		size_t 通路为1，死路为0
 */
-int Find_path(size_t x, size_t y);
-
+Point_S *Find_path(int32_t **pLaby, size_t ulSize);
 /*==============================路径打印函数=================================*/
 /**
 *  \brief		打印迷宫路径
@@ -37,5 +34,5 @@ int Find_path(size_t x, size_t y);
 *
 *
 */
-void Print_path();
+void Print_path(Point_S *p_astPath);
 

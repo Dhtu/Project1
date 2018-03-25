@@ -1,11 +1,12 @@
 #include "stdafx.h"
 
 
-void Print_path() {
+void Print_path(Point_S *p_astPath)
+{
 	size_t i;
 
-	for (i = 0; g_astPath[i].x!='#'; i++)
+	for (i = 0; p_astPath[i].x!='#'; i++)
 	{
-		printf_s("(%d,%d) -> ", g_astPath[i].x, g_astPath[i].y);
+		printf_s("(%d,%d) -> ", p_astPath[i].x, p_astPath[i].y);
 	}
 }
