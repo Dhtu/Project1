@@ -12,11 +12,11 @@ void Print_laby(int32_t **pLaby, size_t ulSize)
 		for (i = 0; i < ulSize; i++)
 		{
 			if (AVAILABLE == pLaby[i][j]) {
-				setfillcolor(RGB(238, 238, 85));
+				setfillcolor(RGB(204, 238, 255));
 			}
 			else if(BLOCKED == pLaby[i][j])
 			{
-				setfillcolor(RGB(150,150,150));
+				setfillcolor(RGB(34,119,204));
 			}
 
 

@@ -10,7 +10,7 @@ size_t Input_size()
 	//初始化图形窗口
 	initgraph(SIZE_OF_WINDOWS);
 
-	setbkcolor(RGB(238, 238, 85));
+	setbkcolor(RGB(204,238,255));
 	cleardevice();
 
 	//定义字符串缓冲区，并接受用户输入
