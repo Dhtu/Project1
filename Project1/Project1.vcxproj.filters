@@ -47,5 +47,8 @@
     <ClCompile Include="Print_path.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Input_size.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

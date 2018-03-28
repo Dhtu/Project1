@@ -7,7 +7,7 @@
 
 #define BLOCKED 0					    //墙
 #define AVAILABLE 1					    //通路
-#define PASSED                          //已经过的路线
+#define PASSED 2                        //已经过的路线
 
 #define START 1				            //起始点
 #define END sg_ulSize-2			        //终点

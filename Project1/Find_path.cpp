@@ -84,6 +84,7 @@ Point_S *Find_path(int32_t **pLaby, size_t ulSize)
 	sg_ulMin = ulSize * ulSize;
 	Finding(START, START);
 
+	free(sg_astTest);
 
 	return sg_astPath;
 }

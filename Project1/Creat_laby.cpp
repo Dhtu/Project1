@@ -66,8 +66,6 @@ void Creat_laby(int32_t **pLaby, size_t ulSize) {
 	srand((unsigned int)time(NULL));
 
 
-	for (i = 0; i < ulSize; i++)
-		pLaby[i] = (int *)malloc(sizeof(int32_t) * ulSize);
 	sg_pLaby = pLaby;
 
 

@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClCompile Include="Creat_laby.cpp" />
     <ClCompile Include="Find_path.cpp" />
+    <ClCompile Include="Input_size.cpp" />
     <ClCompile Include="Print_laby.cpp" />
     <ClCompile Include="Print_path.cpp" />
     <ClCompile Include="Project1.cpp" />

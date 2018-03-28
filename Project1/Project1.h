@@ -1,6 +1,16 @@
 #pragma once
 
 
+
+/*==============================输入函数=================================*/
+/**
+*  \brief		获取迷宫大小
+*
+*
+*  \param[in][out]   返回迷宫大小
+*/
+size_t Input_size();
+
 /*==============================迷宫创建函数=================================*/
 /**
 *  \brief 将迷宫数组初始化为迷宫
@@ -35,4 +45,3 @@ Point_S *Find_path(int32_t **pLaby, size_t ulSize);
 *  \param[in][out]   迷宫路径   
 */
 void Print_path(Point_S *p_astPath);
-
