@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#define SIZE_OF_RECTANCLE 15
-#define RADIUS 13
+#define SIZE_OF_RECTANCLE 7
+#define RADIUS 5
 
 
 void Print_path(Point_S *p_astPath)

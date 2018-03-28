@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-#define SIZE_OF_RECTANGLR 30
+#define SIZE_OF_RECTANGLR 14
 
 void Print_laby(int32_t **pLaby, size_t ulSize)
 {
@@ -12,11 +12,11 @@ void Print_laby(int32_t **pLaby, size_t ulSize)
 		for (i = 0; i < ulSize; i++)
 		{
 			if (AVAILABLE == pLaby[i][j]) {
-				setfillcolor(BLUE);
+				setfillcolor(RGB(238, 238, 85));
 			}
 			else if(BLOCKED == pLaby[i][j])
 			{
-				setfillcolor(RED);
+				setfillcolor(RGB(150,150,150));
 			}
 
 
