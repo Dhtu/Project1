@@ -15,7 +15,7 @@ size_t Input_size()
 
 	//定义字符串缓冲区，并接受用户输入
 	TCHAR s[10];
-	InputBox(s, 10, _T("请输入迷宫大小(10-30)："));
+	InputBox(s, 10, _T("请输入迷宫大小(10-25)："));
 
 	//将输入转换成数字
 	int32_t lSize;
